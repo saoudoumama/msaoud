@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Câlin 💕</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f7a8c6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 360px;
+            position: relative;
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            position: relative;
+            height: 120px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #4CAF50;
+            color: white;
+        }
+
+        #no {
+            background: #f44336;
+            color: white;
+            position: absolute;
+            left: 180px;
+            top: 50px;
+        }
+
+        #message {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        #author {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Veux-tu me faire un câlin ? 🤗</h1>
+
+    <div class="buttons">
+        <button id="yes">Oui 💚</button>
+        <button id="no">Non 😅</button>
+    </div>
+
+    <div id="message"></div>
+    <div id="author"></div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const message = document.getElementById("message");
+    const author = document.getElementById("author");
+
+    function moveNoButton() {
+        const x = Math.random() * 260;
+        const y = Math.random() * 90;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // Bouton rouge très rapide 😈
+    noBtn.addEventListener("mouseover", moveNoButton);
+    document.addEventListener("mousemove", moveNoButton);
+
+    noBtn.addEventListener("click", () => {
+        message.textContent = "Toujours méchante envers moi 😔";
+        author.textContent = "";
+    });
+
+    yesBtn.addEventListener("click", () => {
+        message.textContent = "Tu es adorable princesse 💖";
+        author.textContent = "— Saoud";
+    });
+</script>
+
+</body>
+</html>
